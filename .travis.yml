@@ -12,8 +12,11 @@ addons:
 
 before_cache:
   - if [ "${TRAVIS_OS_NAME}" = "osx" ]; then brew cleanup; fi
+  - if [ "${TRAVIS_OS_NAME}" = "osx" ]; then find /usr/local/Homebrew \! -regex ".+\.git.+" -delete; fi
 
 cache:
   directories:
     - $HOME/.composer/cache
+    # Homebrew cache to improve performance.
     - $HOME/Library/Caches/Homebrew
+    - /usr/local/Homebrew
