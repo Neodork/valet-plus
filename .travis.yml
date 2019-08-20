@@ -10,6 +10,10 @@ addons:
       - valet-php@7.2
     update: true
 
+before_cache:
+  - if [ "${TRAVIS_OS_NAME}" = "osx" ]; then brew cleanup; fi
+
 cache:
   directories:
     - $HOME/.composer/cache
+    - $HOME/Library/Caches/Homebrew
