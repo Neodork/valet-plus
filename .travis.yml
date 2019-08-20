@@ -2,16 +2,15 @@ os: osx
 
 sudo: false
 
-before_install:
-  - brew tap henkrehorst/php
-
 install:
   - composer install
 
 addons:
   homebrew:
     taps: henkrehorst/php
-    casks: valet-php@7.2
+    casks:
+      - composer
+      - valet-php@7.2
 
 cache:
   directories:
