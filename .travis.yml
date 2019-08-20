@@ -13,4 +13,5 @@ cache:
   directories:
     - $HOME/.composer/cache
 
-script: 
+script:
+- echo "skipping tests"
