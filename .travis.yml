@@ -1,18 +1,18 @@
-language: php
-
 os: osx
 
 sudo: false
 
 before_install:
-  - travis_retry composer self-update
+  - brew tap henkrehorst/php
 
 install:
   - composer install
 
+addons:
+  homebrew:
+    taps: henkrehorst/php
+    casks: valet-php@7.2
+
 cache:
   directories:
     - $HOME/.composer/cache
-
-script:
-- echo "skipping tests"
