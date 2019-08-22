@@ -11,4 +11,7 @@ steps:
     brew tap henkrehorst/php
     brew install valet-php@7.2
     brew install composer
+    composer global require weprovide/valet-plus
+    export PATH="$PATH:$HOME/.composer/vendor/bin"
+    valet fix
   displayName: 'Test install time valet-php@7.2'
