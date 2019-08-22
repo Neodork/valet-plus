@@ -11,19 +11,17 @@ steps:
     brew install valet-php@7.2
   displayName: 'Install valet-php@7.2 dependency'
 
-
 - script: |
     brew install composer
     composer install
   displayName: 'Move repo composer directory'
 
-#- script: |
-#    brew install composer
-#    composer global require neodork/valet-plus:dev-release/azure-pipelines
-#  displayName: 'Install composer and repository'
+- script: |
+    brew tap henkrehorst/php
+    brew install valet-php@7.2
+  displayName: 'Install valet-php@7.2 dependency'
 
-#- script: |
-#    export PATH="$PATH:$HOME/.composer/vendor/bin"
-#    valet fix
-#    valet install
-#  displayName: 'Install valet-plus'
+- script: |
+    valet fix
+    valet install
+  displayName: 'Install valet-plus'
