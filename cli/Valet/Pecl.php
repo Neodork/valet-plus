@@ -263,9 +263,6 @@ class Pecl extends AbstractPecl
     private function alternativeDisable($extension)
     {
         switch ($extension) {
-            case self::APCU_BC_EXTENSION:
-                $this->disable(self::APCU_EXTENSION);
-                break;
             default:
                 break;
         }
@@ -283,12 +280,27 @@ class Pecl extends AbstractPecl
     private function alternativeUninstall($extension)
     {
         switch ($extension) {
-            case self::APCU_BC_EXTENSION:
-                $version = $this->getVersion($extension);
-                $this->uninstall(self::APCU_EXTENSION, $version);
-                break;
             default:
                 break;
+        }
+    }
+
+    /**
+     * Because some extensions install others, like apcu_bc, the default install method will not be sufficient.
+     * In that case use this method to for example add additional dependencies for the specific install. For example
+     * apcu_bc installs apcu and apc both will need to be linked within the php.ini file. The default would only link
+     * apcu.so so we define apc.so here as alternative.
+     *
+     * @param $extension
+     *    The extension key name.
+     * @param $phpIniFile
+     * @return string
+     */
+    private function alternativeInstall($extension, $phpIniFile)
+    {
+        switch ($extension) {
+            default:
+                return $phpIniFile;
         }
     }
 
@@ -444,27 +456,6 @@ class Pecl extends AbstractPecl
     function isInstalled($extension)
     {
         return strpos($this->cli->runAsUser('pecl list | grep ' . $extension), $extension) !== false;
-    }
-
-    /**
-     * Because some extensions install others, like apcu_bc, the default install method will not be sufficient.
-     * In that case use this method to for example add additional dependencies for the specific install. For example
-     * apcu_bc installs apcu and apc both will need to be linked within the php.ini file. The default would only link
-     * apcu.so so we define apc.so here as alternative.
-     *
-     * @param $extension
-     *    The extension key name.
-     * @param $phpIniFile
-     * @return string
-     */
-    private function alternativeInstall($extension, $phpIniFile)
-    {
-        switch ($extension) {
-            case self::APCU_BC_EXTENSION:
-                return $this->replaceIniDefinition(self::APCU_EXTENSION, $phpIniFile);
-            default:
-                return $phpIniFile;
-        }
     }
 
     /**
