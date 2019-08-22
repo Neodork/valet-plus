@@ -1,5 +1,5 @@
 trigger:
-- feature/azure-pipelines
+- release/azure-pipelines
 
 pool:
   vmImage: 'macOS-10.14'
