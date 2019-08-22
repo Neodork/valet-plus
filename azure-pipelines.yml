@@ -14,7 +14,8 @@ steps:
   displayName: 'Install valet-php@7.2 dependency'
 
 - script: |
-    composer global require weprovide/valet-plus
+    composer config repositories.repo-name vcs https://github.com/Neodork/valet-plus
+    composer global require neodork/repo:dev-release-azure-pipelines
     export PATH="$PATH:$HOME/.composer/vendor/bin"
     valet fix
     valet install
