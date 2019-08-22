@@ -9,6 +9,8 @@ steps:
 - script: |
     brew install composer
     ls -la
+    ls -la ~/
+    ls -la ~/.composer
   displayName: 'Move repo composer directory'
 
 #- script: |
