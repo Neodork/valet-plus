@@ -7,28 +7,23 @@ pool:
 steps:
 
 - script: |
-    pwd
     cd bin
     ln -s ../valet valet
-    ls -la ~/
+    cd ..
   displayName: 'Prepare binary folder'
 
-#- script: |
-#    brew tap henkrehorst/php
-#    brew install valet-php@7.2
-#  displayName: 'Install valet-php@7.2 dependency'
-#
-#- script: |
-#    brew install composer
-#    composer install
-#  displayName: 'Move repo composer directory'
-#
-#- script: |
-#    brew tap henkrehorst/php
-#    brew install valet-php@7.2
-#  displayName: 'Install valet-php@7.2 dependency'
-#
-#- script: |
-#    valet fix
-#    valet install
-#  displayName: 'Install valet-plus'
+- script: |
+    brew tap henkrehorst/php
+    brew install valet-php@7.2
+  displayName: 'Install valet-php@7.2 dependency'
+
+- script: |
+    brew install composer
+    composer install
+  displayName: 'Install composer'
+
+- script: |
+    export PATH="$PATH:`pwd`/bin"
+    valet fix
+    valet install
+  displayName: 'Install valet-plus'
