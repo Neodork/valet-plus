@@ -10,12 +10,15 @@ steps:
     brew update
     brew tap henkrehorst/php
     brew install valet-php@7.2
-    brew install composer
   displayName: 'Install valet-php@7.2 dependency'
 
 - script: |
-    composer global require neodork/dev-release/azure-pipelines
+    brew install composer
+    composer global require neodork/valet-plus:dev-release/azure-pipelines
     export PATH="$PATH:$HOME/.composer/vendor/bin"
+  displayName: 'Install composer and repositories'
+
+- script: |
     valet fix
     valet install
   displayName: 'Install valet-plus'
