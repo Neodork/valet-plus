@@ -13,6 +13,8 @@ pool:
 
 steps:
 
+# Valet install command test cases
+
 - script: |
     cd bin
     ln -s ../valet valet
@@ -35,10 +37,26 @@ steps:
     valet install
   displayName: 'Install valet-plus'
 
+# PHP 5.6 Command test cases
+
 - script: |
     export PATH="$PATH:`pwd`/bin"
     valet use 5.6
   displayName: 'Test switching to PHP 5.6'
+
+- script: |
+    export PATH="$PATH:`pwd`/bin"
+    valet xdebug on
+    valet xdebug off
+  displayName: 'PHP 5.6 xdebug on and off'
+
+- script: |
+    export PATH="$PATH:`pwd`/bin"
+    valet ioncube on
+    valet ioncube off
+  displayName: 'PHP 5.6 ioncube on and off'
+
+# PHP 7.0 Command test cases
 
 - script: |
     export PATH="$PATH:`pwd`/bin"
@@ -47,13 +65,55 @@ steps:
 
 - script: |
     export PATH="$PATH:`pwd`/bin"
+    valet xdebug on
+    valet xdebug off
+  displayName: 'PHP 7.0 xdebug on and off'
+
+- script: |
+    export PATH="$PATH:`pwd`/bin"
+    valet ioncube on
+    valet ioncube off
+  displayName: 'PHP 7.0 ioncube on and off'
+
+# PHP 7.1 Command test cases
+
+- script: |
+    export PATH="$PATH:`pwd`/bin"
     valet use 7.1
   displayName: 'Test switching to PHP 7.1'
 
 - script: |
     export PATH="$PATH:`pwd`/bin"
+    valet xdebug on
+    valet xdebug off
+  displayName: 'PHP 7.1 xdebug on and off'
+
+- script: |
+    export PATH="$PATH:`pwd`/bin"
+    valet ioncube on
+    valet ioncube off
+  displayName: 'PHP 7.1 ioncube on and off'
+
+# PHP 7.2 Command test cases
+
+- script: |
+    export PATH="$PATH:`pwd`/bin"
     valet use 7.2
   displayName: 'Test switching to PHP 7.2'
+
+- script: |
+    export PATH="$PATH:`pwd`/bin"
+    valet xdebug on
+    valet xdebug off
+  displayName: 'PHP 7.2 xdebug on and off'
+
+- script: |
+    export PATH="$PATH:`pwd`/bin"
+    valet ioncube on
+    valet ioncube off
+  displayName: 'PHP 7.2 ioncube on and off'
+
+# PHP 7.3 Command test cases
 
 - script: |
     export PATH="$PATH:`pwd`/bin"
@@ -64,10 +124,10 @@ steps:
     export PATH="$PATH:`pwd`/bin"
     valet xdebug on
     valet xdebug off
-  displayName: 'Test switching xdebug on and off'
+  displayName: 'PHP 7.3 xdebug on and off'
 
 - script: |
     export PATH="$PATH:`pwd`/bin"
     valet ioncube on
     valet ioncube off
-  displayName: 'Test switching ioncube on and off'
+  displayName: 'PHP 7.3 ioncube on and off'
