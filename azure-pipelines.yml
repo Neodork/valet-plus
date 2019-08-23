@@ -38,7 +38,24 @@ steps:
 - script: |
     export PATH="$PATH:`pwd`/bin"
     valet use 5.6
+  displayName: 'Test switching to PHP 5.6'
+
+- script: |
+    export PATH="$PATH:`pwd`/bin"
     valet use 7.0
+  displayName: 'Test switching to PHP 7.0'
+
+- script: |
+    export PATH="$PATH:`pwd`/bin"
     valet use 7.1
+  displayName: 'Test switching to PHP 7.1'
+
+- script: |
+    export PATH="$PATH:`pwd`/bin"
+    valet use 7.2
+  displayName: 'Test switching to PHP 7.2'
+
+- script: |
+    export PATH="$PATH:`pwd`/bin"
     valet use 7.3
-  displayName: 'Test switching PHP versions'
+  displayName: 'Test switching to PHP 7.3'
