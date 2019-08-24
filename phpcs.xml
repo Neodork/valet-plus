@@ -1,5 +1,5 @@
 <?xml version="1.0"?>
-<ruleset name="VALET-PLUS RULESET" namespace="E4BR\CS\Standard">
+<ruleset name="VALET-PLUS RULESET">
 
     <description>Valet-plus coding standard</description>
     ​
