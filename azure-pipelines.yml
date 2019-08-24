@@ -124,6 +124,6 @@ steps:
     ./valet memcache uninstall
   displayName: '[MEMCACHED] install'
 
-  - script: |
-      ./valet memcache uninstall
-    displayName: '[MEMCACHED] uninstall'
+- script: |
+    ./valet memcache uninstall
+  displayName: '[MEMCACHED] uninstall'
