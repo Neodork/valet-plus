@@ -7,12 +7,6 @@
     <arg name="colors" />
     <arg value="snp" />
 
-    <!-- Scan all files except things managed by Composer in ./vendor. -->
-    <exclude-pattern>/vendor/*</exclude-pattern>
-    <exclude-pattern>*.js</exclude-pattern>
-    <exclude-pattern>*.css</exclude-pattern>
-    <exclude-pattern>*.html</exclude-pattern>
-
     <!-- Define the sources to scan here -->
     <file>./cli</file>
     ​
