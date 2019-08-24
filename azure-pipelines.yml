@@ -121,7 +121,6 @@ steps:
 - script: |
     brew reinstall pkg-config
     ./valet memcache install
-    ./valet memcache uninstall
   displayName: '[MEMCACHED] install'
 
 - script: |
