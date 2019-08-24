@@ -122,4 +122,8 @@ steps:
     brew reinstall pkg-config
     ./valet memcache install
     ./valet memcache uninstall
-  displayName: '[MEMCACHED] install and uninstall'
+  displayName: '[MEMCACHED] install'
+
+  - script: |
+      ./valet memcache uninstall
+    displayName: '[MEMCACHED] uninstall'
