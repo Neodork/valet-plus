@@ -77,8 +77,8 @@ steps:
 
 - script: |
     export PATH="$PATH:`pwd`/bin"
-    valet memcache on
-    valet memcache off
+    valet memcache install
+    valet memcache uninstall
   displayName: 'PHP 7.0 memcached on and off'
 
 # PHP 7.1 Command test cases
@@ -102,8 +102,8 @@ steps:
 
 - script: |
     export PATH="$PATH:`pwd`/bin"
-    valet memcache on
-    valet memcache off
+    valet memcache install
+    valet memcache uninstall
   displayName: 'PHP 7.1 memcached on and off'
 
 # PHP 7.2 Command test cases
@@ -127,8 +127,8 @@ steps:
 
 - script: |
     export PATH="$PATH:`pwd`/bin"
-    valet memcache on
-    valet memcache off
+    valet memcache install
+    valet memcache uninstall
   displayName: 'PHP 7.2 memcached on and off'
 
 # PHP 7.3 Command test cases
@@ -152,6 +152,6 @@ steps:
 
 - script: |
     export PATH="$PATH:`pwd`/bin"
-    valet memcache on
-    valet memcache off
+    valet memcache install
+    valet memcache uninstall
   displayName: 'PHP 7.3 memcached on and off'
