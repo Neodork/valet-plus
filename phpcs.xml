@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
-<ruleset name="E4BR PHP Standard" namespace="E4BR\CS\Standard">
+<ruleset name="VALET-PLUS RULESET" namespace="E4BR\CS\Standard">
 
-    <description>PHP Coding Standard</description>
+    <description>Valet-plus coding standard</description>
     ​
     <arg name="basepath" value="."/>
     <arg name="colors" />
@@ -16,57 +16,21 @@
     <!-- Define the sources to scan here -->
     <file>./cli</file>
     ​
-    <rule ref="PSR1" />
     <rule ref="PSR2" >
-        <exclude name="PSR2.Classes.ClassDeclaration.OpenBraceNewLine" />
-        <exclude name="PSR2.Methods.FunctionCallSignature.SpaceAfterOpenBracket" />
-        <exclude name="PSR2.Methods.FunctionCallSignature.SpaceBeforeCloseBracket" />
-    </rule>
-
-    <!--                      -->
-    <!-- Functions / Closures -->
-    <!--                      -->
-
-    <rule ref="Generic.Functions.OpeningFunctionBraceKernighanRitchie">
-        <properties>
-            <property name="checkFunctions" value="true" />
-            <property name="checkClosures" value="true" />
-        </properties>
-    </rule>
-
-    <!--         -->
-    <!-- Strings -->
-    <!--         -->
-
-    <rule ref="Squiz.Strings.ConcatenationSpacing">
-        <properties>
-            <property name="spacing" value="1" />
-            <property name="ignoreNewlines" value="true"/>
-        </properties>
+        <exclude name="PSR1.Classes.ClassDeclaration.MissingNamespace" />
+        <exclude name="PSR1.Classes.ClassDeclaration.MultipleClasses" />
     </rule>
 
     <!--                       -->
     <!--  Forbidden functions  -->
     <!--                       -->
-
     <rule ref="Generic.PHP.ForbiddenFunctions">
         <properties>
             <property name="forbiddenFunctions" type="array"
                       value="xdebug_break=>null,
-                            exit=>null,
                             eval=>null,
                             var_dump=>null,
                             print_r=>null" />
-        </properties>
-    </rule>
-
-    <!--                       -->
-    <!-- Discouraged functions -->
-    <!--                       -->
-
-    <rule ref="Squiz.PHP.DiscouragedFunctions">
-        <properties>
-            <property name="eval" value="true" />
         </properties>
     </rule>
     ​
