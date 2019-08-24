@@ -75,12 +75,6 @@ steps:
     valet ioncube off
   displayName: 'PHP 7.0 ioncube on and off'
 
-- script: |
-    export PATH="$PATH:`pwd`/bin"
-    valet memcache install
-    valet memcache uninstall
-  displayName: 'PHP 7.0 memcached on and off'
-
 # PHP 7.1 Command test cases
 
 - script: |
@@ -99,12 +93,6 @@ steps:
     valet ioncube on
     valet ioncube off
   displayName: 'PHP 7.1 ioncube on and off'
-
-- script: |
-    export PATH="$PATH:`pwd`/bin"
-    valet memcache install
-    valet memcache uninstall
-  displayName: 'PHP 7.1 memcached on and off'
 
 # PHP 7.2 Command test cases
 
@@ -125,12 +113,6 @@ steps:
     valet ioncube off
   displayName: 'PHP 7.2 ioncube on and off'
 
-- script: |
-    export PATH="$PATH:`pwd`/bin"
-    valet memcache install
-    valet memcache uninstall
-  displayName: 'PHP 7.2 memcached on and off'
-
 # PHP 7.3 Command test cases
 
 - script: |
@@ -150,8 +132,10 @@ steps:
     valet ioncube off
   displayName: 'PHP 7.3 ioncube on and off'
 
+# Test Memcache
+
 - script: |
     export PATH="$PATH:`pwd`/bin"
     valet memcache install
     valet memcache uninstall
-  displayName: 'PHP 7.3 memcached on and off'
+  displayName: 'Memcached install and uninstall'
