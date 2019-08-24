@@ -34,6 +34,10 @@ steps:
   displayName: '[INSTALL] composer'
 
 - script: |
+    ./vendor/squizlabs/php_codesniffer/bin/phpcs
+  displayName: '[CODE STYLE] Check PSR-2'
+
+- script: |
     ./valet fix
     ./valet install
   displayName: '[INSTALL] valet-plus'
