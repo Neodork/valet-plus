@@ -18,18 +18,17 @@ steps:
 - script: |
     brew tap henkrehorst/php
     brew install valet-php@7.2
-  displayName: '[INSTALL] Install valet-php@7.2'
+  displayName: '[INSTALL] valet-php@7.2'
 
 - script: |
     brew install composer
     composer install
-  displayName: '[INSTALL] Install composer'
+  displayName: '[INSTALL] composer'
 
 - script: |
-    export PATH="$PATH:`pwd`/bin"
     ./valet fix
     ./valet install
-  displayName: '[INSTALL] Install valet-plus'
+  displayName: '[INSTALL] valet-plus'
 
 # PHP 5.6 Command test cases
 
@@ -40,13 +39,11 @@ steps:
   displayName: '[PHP 5.6] Switch to'
 
 - script: |
-    export PATH="$PATH:`pwd`/bin"
     ./valet xdebug on
     ./valet xdebug off
   displayName: '[PHP 5.6] xdebug on and off'
 
 - script: |
-    export PATH="$PATH:`pwd`/bin"
     ./valet ioncube on
     ./valet ioncube off
   displayName: '[PHP 5.6] ioncube on and off'
@@ -54,19 +51,16 @@ steps:
 # PHP 7.0 Command test cases
 
 - script: |
-    export PATH="$PATH:`pwd`/bin"
     ./valet use 7.0
     php -v
   displayName: '[PHP 7.0] Switch to'
 
 - script: |
-    export PATH="$PATH:`pwd`/bin"
     ./valet xdebug on
     ./valet xdebug off
   displayName: '[PHP 7.0] xdebug on and off'
 
 - script: |
-    export PATH="$PATH:`pwd`/bin"
     ./valet ioncube on
     ./valet ioncube off
   displayName: '[PHP 7.0] ioncube on and off'
@@ -74,19 +68,16 @@ steps:
 # PHP 7.1 Command test cases
 
 - script: |
-    export PATH="$PATH:`pwd`/bin"
     ./valet use 7.1
     php -v
   displayName: '[PHP 7.1] Switch to'
 
 - script: |
-    export PATH="$PATH:`pwd`/bin"
     ./valet xdebug on
     ./valet xdebug off
   displayName: '[PHP 7.1] xdebug on and off'
 
 - script: |
-    export PATH="$PATH:`pwd`/bin"
     ./valet ioncube on
     ./valet ioncube off
   displayName: '[PHP 7.1] ioncube on and off'
@@ -94,19 +85,16 @@ steps:
 # PHP 7.2 Command test cases
 
 - script: |
-    export PATH="$PATH:`pwd`/bin"
     ./valet use 7.2
     php -v
   displayName: '[PHP 7.2] Switch to'
 
 - script: |
-    export PATH="$PATH:`pwd`/bin"
     ./valet xdebug on
     ./valet xdebug off
   displayName: '[PHP 7.2] xdebug on and off'
 
 - script: |
-    export PATH="$PATH:`pwd`/bin"
     ./valet ioncube on
     ./valet ioncube off
   displayName: '[PHP 7.2] ioncube on and off'
@@ -114,19 +102,16 @@ steps:
 # PHP 7.3 Command test cases
 
 - script: |
-    export PATH="$PATH:`pwd`/bin"
     ./valet use 7.3
     php -v
   displayName: '[PHP 7.3] Switch to'
 
 - script: |
-    export PATH="$PATH:`pwd`/bin"
     ./valet xdebug on
     ./valet xdebug off
   displayName: '[PHP 7.3] xdebug on and off'
 
 - script: |
-    export PATH="$PATH:`pwd`/bin"
     ./valet ioncube on
     ./valet ioncube off
   displayName: '[PHP 7.3] ioncube on and off'
@@ -134,7 +119,6 @@ steps:
 # Test Memcached
 
 - script: |
-    export PATH="$PATH:`pwd`/bin"
     ./valet memcache install
     ./valet memcache uninstall
-  displayName: '[Memcached] install and uninstall'
+  displayName: '[MEMCACHED] install and uninstall'
