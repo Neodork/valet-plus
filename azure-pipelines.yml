@@ -7,8 +7,16 @@ strategy:
   matrix:
     mojave:
       imageName: 'macOS-10.14'
+      mariadb: false
     highsierra:
       imageName: 'macOS-10.13'
+      mariadb: false
+    mojave-mariadb:
+      imageName: 'macOS-10.14'
+      mariadb: true
+    highsierra-mariadb:
+      imageName: 'macOS-10.13'
+      mariadb: true
 
 pool:
   vmImage: $(imageName)
@@ -34,8 +42,15 @@ steps:
 
 - script: |
     ./valet fix
+    ./valet install --with-mariadb
+  displayName: '[INSTALL] valet-plus'
+  condition: eq($(mariadb),'true')
+
+- script: |
+    ./valet fix
     ./valet install
   displayName: '[INSTALL] valet-plus'
+  condition: eq($(mariadb),'false')
 
 # PHP 5.6 Command test cases
 
