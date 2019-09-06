@@ -12,14 +12,26 @@ class Mysql
     const MYSQL_CONF = '/usr/local/etc/my.cnf';
     const MAX_FILES_CONF = '/Library/LaunchDaemons/limit.maxfiles.plist';
     const MYSQL_DIR = '/usr/local/var/mysql';
+    const MYSQL_BINARY = '/usr/local/bin/mysql';
     const MYSQL_ROOT_PASSWORD = 'root';
+
+    const MYSQL_FORMULA_NAME = 'mysql@';
+    const MYSQL_57_VERSION = '5.7';
+    const MYSQL_57_FORMULA = self::MYSQL_FORMULA_NAME . self::MYSQL_57_VERSION;
+    const MYSQL_DEFAULT_FORMULA = self::MYSQL_57_FORMULA;
+
+    const SUPPORTED_MYSQL_VERSIONS = [
+        self::MYSQL_57_VERSION => self::MYSQL_57_FORMULA
+    ];
 
     public $brew;
     public $cli;
     public $files;
     public $configuration;
     public $site;
-    public $systemDatabase = ['sys', 'performance_schema', 'information_schema', 'mysql@5.7'];
+    public $systemDatabase = ['sys', 'performance_schema', 'information_schema', self::MYSQL_DEFAULT_FORMULA];
+
+
     /**
      * @var Mysqli
      */
@@ -76,6 +88,11 @@ class Mysql
         $this->stop();
         $this->installConfiguration($type);
         $this->restart();
+
+        // If MySQL is not linked as binary, create link
+        if(!$this->isLinked()){
+            $this->cli->runAsUser('brew link ' . self::MYSQL_DEFAULT_FORMULA . ' --force');
+        }
     }
 
     /**
@@ -475,5 +492,29 @@ class Mysql
         );
 
         $this->cli->quietly('open ' . $tmpName);
+    }
+
+    /**
+     * Determine if mysql is linked
+     *
+     * @return string
+     */
+    public function isLinked()
+    {
+        if (!$this->files->isLink(self::MYSQL_BINARY)) {
+            throw new DomainException("Unable to determine linked PHP.");
+        }
+
+        $resolvedPath = $this->files->readLink(self::MYSQL_BINARY);
+
+        $versions = self::SUPPORTED_MYSQL_VERSIONS;
+
+        foreach ($versions as $version => $brewname) {
+            if (strpos($resolvedPath, '/' . $brewname . '/') !== false) {
+                return $version;
+            }
+        }
+
+        throw new DomainException("Unable to determine linked PHP.");
     }
 }
