@@ -43,19 +43,18 @@ steps:
 - script: |
     ./valet fix
     ./valet install --with-mariadb
-  displayName: '[INSTALL] valet-plus'
-  condition: eq($(mariadb),'true')
+  displayName: '[INSTALL] valet-plus with MariaDB'
+  condition: eq(variables['mariadb'], true)
 
 - script: |
     ./valet fix
     ./valet install
   displayName: '[INSTALL] valet-plus'
-  condition: eq($(mariadb),'false')
+  condition: eq(variables['mariadb'], false)
 
 # PHP 5.6 Command test cases
 
 - script: |
-    export PATH="$PATH:`pwd`/bin"
     ./valet use 5.6
     php -v
   displayName: '[PHP 5.6] Switch to'
