@@ -55,5 +55,9 @@ steps:
 # Test MySQL Commands
 
 - script: |
+    mysql --help | grep -A1 "Default options are read"
+  displayName: '[MYSQL] print available config paths '
+
+- script: |
     ./valet db ls
   displayName: '[MYSQL] database list command'

@@ -39,28 +39,28 @@ if (is_dir(VALET_HOME_PATH)) {
  * Allow Valet to be run more conveniently by allowing the Node proxy to run password-less sudo.
  */
 $app->command('install [--with-mariadb]', function ($withMariadb) {
-    PhpFpm::checkInstallation();
+    //PhpFpm::checkInstallation();
 
-    Nginx::stop();
-    PhpFpm::stop();
-    Mysql::stop();
-    RedisTool::stop();
-    DevTools::install();
-    Binaries::installBinaries();
+    //Nginx::stop();
+    //PhpFpm::stop();
+    //Mysql::stop();
+    //RedisTool::stop();
+    //DevTools::install();
+    //Binaries::installBinaries();
 
     Configuration::install();
-    $domain = Nginx::install();
-    PhpFpm::install();
-    DnsMasq::install();
+    //$domain = Nginx::install();
+    //PhpFpm::install();
+    //DnsMasq::install();
     Mysql::install($withMariadb ? 'mariadb' : 'mysql@5.7');
-    RedisTool::install();
-    Mailhog::install();
-    Nginx::restart();
-    Valet::symlinkToUsersBin();
+    //RedisTool::install();
+    //Mailhog::install();
+    //Nginx::restart();
+    //Valet::symlinkToUsersBin();
     Mysql::setRootPassword();
 
-    Mailhog::updateDomain($domain);
-    Elasticsearch::updateDomain($domain);
+    //Mailhog::updateDomain($domain);
+    //Elasticsearch::updateDomain($domain);
 
     output(PHP_EOL.'<info>Valet installed successfully!</info>');
 })->descriptions('Install the Valet services');
