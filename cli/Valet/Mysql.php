@@ -74,8 +74,8 @@ class Mysql
         $this->restart();
 
         // If formula is versioned link the formula as the binary.
-        if(strpos($type, '@')){
-            $this->cli->runAsUser("brew link $type --force", function (){
+        if (strpos($type, '@')) {
+            $this->cli->runAsUser("brew link $type --force", function () {
                 warning('Failed linking MySQL!');
             });
         }
