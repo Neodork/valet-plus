@@ -57,7 +57,7 @@ $app->command('install [--with-mariadb]', function ($withMariadb) {
     //Mailhog::install();
     //Nginx::restart();
     //Valet::symlinkToUsersBin();
-    Mysql::setRootPassword();
+//    Mysql::setRootPassword();
 
     //Mailhog::updateDomain($domain);
     //Elasticsearch::updateDomain($domain);
