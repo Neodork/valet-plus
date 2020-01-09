@@ -205,15 +205,18 @@ class Mysql
 
     /**
      * Returns the stored password from the config. If not configured returns the default root password.
+     *
+     * @throws \Exception
      */
     private function getRootPassword()
     {
         $config = $this->configuration->read();
         if (isset($config['mysql']) && isset($config['mysql']['password'])) {
+            var_dump($config['mysql']['password']);
             return $config['mysql']['password'];
         }
 
-        return self::MYSQL_ROOT_PASSWORD;
+        throw new \Exception('MySQL password is not set, cannot run any MySQL commands!');
     }
 
     /**
