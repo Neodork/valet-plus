@@ -63,5 +63,6 @@ steps:
   displayName: '[MYSQL] set the mysql root user password'
 
 - script: |
+    mysqladmin -u root password "root"
     ./valet db ls
   displayName: '[MYSQL] database list command'
