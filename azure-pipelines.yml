@@ -59,5 +59,9 @@ steps:
   displayName: '[MYSQL] print available config paths '
 
 - script: |
+    ./valet pwd root
+  displayName: '[MYSQL] set the mysql root user password'
+
+- script: |
     ./valet db ls
   displayName: '[MYSQL] database list command'

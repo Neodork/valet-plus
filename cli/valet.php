@@ -627,12 +627,12 @@ if (is_dir(VALET_HOME_PATH)) {
         }
 
         if ($run === 'pwd' || $run === 'password') {
-            if (!$name || !$optional) {
-                throw new Exception('Missing arguments to change root user password. Use: "valet db pwd <old> <new>"');
+            if ($name === null) {
+                throw new Exception('Missing arguments to change root user password. Use: "valet db pwd <new>"');
             }
 
             info('Setting password for root user...');
-            Mysql::setRootPassword($name, $optional);
+            Mysql::setRootPassword($name);
             return;
         }
 
