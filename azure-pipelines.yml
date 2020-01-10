@@ -61,7 +61,7 @@ steps:
 - script: |
     brew services list
     ls -la /tmp
-    mysqladmin --host=127.0.0.1 --user="root" --password="" password "root"
+    mysqladmin --user="root" --password="" password "root"
     ./valet db pwd root
   displayName: '[MYSQL] set the mysql root user password'
 
