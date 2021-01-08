@@ -38,12 +38,16 @@ steps:
   - script: |
       rm /usr/local/bin/2to3
       brew install valet-php@7.2
+      brew services list
+      brew services start valet-php@7.3
+      brew services list
     displayName: '[INSTALL] Brew install valet-php@7.2'
 
   # Link valet-php@7.2 as default php binary.
   - script: |
       brew link valet-php@7.2 --force
       php -v | grep 7.2
+      brew services list
     displayName: '[INSTALL] Brew link valet-php@7.2'
 
   # Since the azure CI/CD image comes with composer pre-installed there is no need to install composer.
@@ -67,7 +71,9 @@ steps:
   # Since the CI/CD targeting the binary directly the CI/CD does not check this.
 
   - script: |
+      brew services list
       ./valet fix
+      brew services list
     displayName: '[INSTALL] Valet fix'
 
   - script: |
