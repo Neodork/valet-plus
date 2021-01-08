@@ -39,7 +39,7 @@ steps:
       rm /usr/local/bin/2to3
       brew install valet-php@7.2
       brew services list
-      brew services start valet-php@7.2
+      sudo brew services start valet-php@7.2
       brew services list
       ls -la /usr/local/var/log
       cat /usr/local/var/log/php-fpm.log
