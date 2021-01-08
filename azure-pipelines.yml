@@ -30,11 +30,13 @@ steps:
 
   # Install the valet-php brew tap.
   - script: |
-      brew tap henkrehorst/php
+      brew tap henkrehorst/homebrew-php-test
     displayName: '[INSTALL] Brew tap henkrehost/homebrew-php-test'
 
   # Install the default PHP version (currently: valet-php@7.2).
   - script: |
+      ls -la /usr/local/Cellar/
+      rm /usr/local/bin/2to3
       brew install valet-php@7.2
     displayName: '[INSTALL] Brew install valet-php@7.2'
 
