@@ -41,6 +41,7 @@ steps:
       brew services list
       brew services start valet-php@7.2
       brew services list
+      ls -la /usr/local/var/log
       cat /usr/local/var/log/php-fpm.log
     displayName: '[INSTALL] Brew install valet-php@7.2'
 
