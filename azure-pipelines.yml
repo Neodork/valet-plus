@@ -72,6 +72,8 @@ steps:
 
   - script: |
       ./valet install
+      brew services list
+      php -i | grep extension_dir
     displayName: '[INSTALL] Valet install'
 
   # PHP 5.6 Command test cases
