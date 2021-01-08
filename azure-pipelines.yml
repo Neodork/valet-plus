@@ -31,7 +31,7 @@ steps:
   # Install the valet-php brew tap.
   - script: |
       brew tap henkrehorst/php
-    displayName: '[INSTALL] Brew tap henkrehost/php'
+    displayName: '[INSTALL] Brew tap henkrehost/homebrew-php-test'
 
   # Install the default PHP version (currently: valet-php@7.2).
   - script: |
