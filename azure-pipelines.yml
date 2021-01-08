@@ -43,6 +43,7 @@ steps:
       brew services list
       ls -la /usr/local/var/log
       cat /usr/local/var/log/php-fpm.log
+      cat /var/log/system.log
     displayName: '[INSTALL] Brew install valet-php@7.2'
 
   # Link valet-php@7.2 as default php binary.
